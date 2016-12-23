@@ -1,0 +1,30 @@
+{
+    "manifest_version": 2,
+    "name": "Youtube Playlist Cleanner",
+    "description": "Tira músicas ruins da playlist",
+    "version": "1.0",
+    "default_locale": "en",
+    "icons": {
+        "16" : "icons/youtube_triangular_16.png",
+        "32" : "icons/youtube_triangular_32.png",
+        "128" : "icons/youtube_triangular_128.png",
+        "256" : "icons/youtube_triangular_256.png"
+    },
+    "background": {
+        "scripts": ["js/background.js"]
+    },
+    "browser_action": {
+        "default_popup": "html/popup.html",
+        "default_title": "PLaylist Cleanner!"
+    },
+    "content_scripts": [{
+        "matches": ["https://www.youtube.com/*"],
+        "all_frames": true,
+        "js": ["js/content.js", "js/jquery-3.1.1.js"]
+    }],
+    "permissions": [
+        "activeTab",
+        "storage",
+        "http://localhost:8000/*"
+    ]
+}
